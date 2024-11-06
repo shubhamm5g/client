@@ -40,7 +40,7 @@ function SideMenu() {
           <Link
             to={"/"}
             className={`${
-              urlPath.trim() == "/" ? "!bg-secondaryHover" : " "
+              urlPath.trim() === "/" ? "!bg-secondaryHover" : " "
             } hover:bg-secondaryHover w-[100%] block cursor-pointer p-3`}
           >
             <FontAwesomeIcon icon={faHome} />
@@ -49,7 +49,7 @@ function SideMenu() {
           <Link
             to={"/contact-form"}
             className={`${
-              urlPath.trim() == "/contact-form" ? "!bg-secondaryHover" : " "
+              urlPath.trim() === "/contact-form" ? "!bg-secondaryHover" : " "
             } hover:bg-secondaryHover w-[100%] block cursor-pointer p-3`}
           >
             <FontAwesomeIcon icon={faFolder} />

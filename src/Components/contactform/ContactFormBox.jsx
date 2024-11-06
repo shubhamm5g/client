@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
 function ContactFormBox() {
   const [formData, setFormData] = useState({
@@ -11,7 +11,7 @@ function ContactFormBox() {
   });
   const [errors, setErrors] = useState({});
   const handleInputChange = (e) => {
-    const { name, value, type } = e.target;
+    const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     if (value) {
       setErrors((prev) => ({ ...prev, [name]: false }));
@@ -22,10 +22,10 @@ function ContactFormBox() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     Object.keys(formData).forEach((key) => {
-      if (formData[key] == "") setErrors((prev) => ({ ...prev, [key]: true }));
+      if (formData[key] === "") setErrors((prev) => ({ ...prev, [key]: true }));
     });
     const isFormDataValid = Object.keys(errors).every(
-      (key) => errors[key] != true
+      (key) => errors[key] !== true
     );
 
     if (isFormDataValid) {
@@ -53,7 +53,7 @@ function ContactFormBox() {
             message: "",
           });
         }
-        if (response.status == 400) {
+        if (response.status === 400) {
           toast.error(responseData.msg);
           console.log(responseData.msg);
           console.log(response);
