@@ -32,7 +32,7 @@ function ContactFormBox() {
       try {
         console.log(formData);
         const response = await fetch(
-          `http://localhost:4000/api/common/contactForm`,
+          `https://contactformtask.onrender.com/api/common/contactForm`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
